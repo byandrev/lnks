@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import useDarkMode from "../../hooks/useDarkMode.ts";
 
 const Button = styled.button`
   background: ${({ theme }) => theme.bg};
@@ -11,7 +12,9 @@ const Button = styled.button`
 `;
 
 function Toggle() {
-  return <Button>Switch Theme</Button>;
+  const { themeToggler } = useDarkMode();
+
+  return <Button onClick={themeToggler}>Switch Theme</Button>;
 }
 
 export default Toggle;

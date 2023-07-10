@@ -3,3 +3,8 @@ export default interface ThemeType {
   text: string;
   border: string;
 }
+
+export interface ThemeContextType {
+  theme?: string;
+  themeToggler?: () => void;
+}
