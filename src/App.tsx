@@ -1,14 +1,16 @@
 import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
-import { useState } from "react";
 import { GlobalStyles } from "./theme/globalStyles.ts";
+import useDarkMode from "./hooks/useDarkMode.ts";
 
 function App() {
-  const [theme] = useState("light");
+  const { theme } = useDarkMode();
+
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
 
   return (
-    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-      <GlobalStyles theme={theme === "light" ? lightTheme : darkTheme} />
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles theme={themeMode} />
       <span>Hello</span>
     </ThemeProvider>
   );
