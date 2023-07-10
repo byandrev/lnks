@@ -1,6 +1,5 @@
-import { DefaultTheme } from "styled-components";
-
-export default interface ThemeType extends DefaultTheme {
+export default interface ThemeType {
   bg: string;
   text: string;
+  border: string;
 }
