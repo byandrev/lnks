@@ -1,12 +1,13 @@
 import { ReactNode } from "react";
 import Header from "../header";
 import Footer from "../footer";
+import Container from "../common/container";
 
 function Wrapper({ children }: { children: ReactNode }) {
   return (
     <>
       <Header />
-      {children}
+      <Container>{children}</Container>
       <Footer />
     </>
   );
