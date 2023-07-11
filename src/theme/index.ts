@@ -9,13 +9,15 @@ const baseStyles = {
 export const lightTheme: DefaultTheme = {
   bg: "#fff",
   text: "#363537",
-  border: "#aaa",
+  textLight: "#666",
+  border: "#ddd",
   ...baseStyles,
 };
 
 export const darkTheme: DefaultTheme = {
   bg: "#1a1a1a",
   text: "#FAFAFA",
-  border: "#444",
+  textLight: "#aaa",
+  border: "#222",
   ...baseStyles,
 };

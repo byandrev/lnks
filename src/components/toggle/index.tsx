@@ -1,20 +1,11 @@
-import styled from "styled-components";
 import useDarkMode from "../../hooks/useDarkMode.ts";
-
-const Button = styled.button`
-  background: ${({ theme }) => theme.bg};
-  border: 1px solid ${({ theme }) => theme.border};
-  color: ${({ theme }) => theme.text};
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-size: 0.8rem;
-  padding: 0.6rem;
-`;
+import Button from "../common/button";
+import { FaMoon } from "react-icons/fa";
 
 function Toggle() {
   const { themeToggler } = useDarkMode();
 
-  return <Button onClick={themeToggler}>Switch Theme</Button>;
+  return <Button icon={<FaMoon />} onClick={themeToggler}></Button>;
 }
 
 export default Toggle;
