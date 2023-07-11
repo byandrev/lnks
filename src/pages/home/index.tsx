@@ -1,14 +1,11 @@
-import Header from "../../components/header";
+import Wrapper from "../../components/wrapper";
 import Banner from "./components/banner";
-import Footer from "../../components/footer";
 
 function Home() {
   return (
-    <>
-      <Header />
+    <Wrapper>
       <Banner />
-      <Footer />
-    </>
+    </Wrapper>
   );
 }
 
