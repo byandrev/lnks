@@ -1,23 +1,11 @@
-import { useState } from "react";
 import Wrapper from "../../../components/wrapper";
-import Input from "../../../components/forms/Input";
+import Form from "./form";
 
 function SignIn() {
-  const [email, setEmail] = useState("");
-
-  const handleChangeEmail = (val: string) => {
-    setEmail(val);
-  };
-
   return (
     <Wrapper>
       <p>SignIn</p>
-      <Input
-        value={email}
-        handleChange={handleChangeEmail}
-        placeholder="Email"
-        type="email"
-      />
+      <Form />
     </Wrapper>
   );
 }
