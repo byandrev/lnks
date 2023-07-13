@@ -8,6 +8,8 @@ export const InputStyled = styled.input`
   font-family: inherit;
   font-size: .9rem;
   border-radius: 0.3rem;
+  width: 100%;
+  margin-bottom: 1rem;
 
   &:focus {
     outline: none;
