@@ -1,5 +1,6 @@
 export default interface ThemeType {
   bg: string;
+  bgAlt: string;
   text: string;
   textLight: string;
   border: string;

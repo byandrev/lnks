@@ -8,6 +8,7 @@ const baseStyles = {
 
 export const lightTheme: DefaultTheme = {
   bg: "#fff",
+  bgAlt: "#f2f2f2",
   text: "#363537",
   textLight: "#666",
   border: "#ddd",
@@ -16,6 +17,7 @@ export const lightTheme: DefaultTheme = {
 
 export const darkTheme: DefaultTheme = {
   bg: "#1a1a1a",
+  bgAlt: "#1f1f1f",
   text: "#FAFAFA",
   textLight: "#aaa",
   border: "#222",
