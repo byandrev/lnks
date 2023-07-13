@@ -1,13 +1,19 @@
-import { useState } from "react";
-import Input from "../../../../components/forms/Input";
-import { FormStyled } from "./styles";
+import { FormEvent, useState } from "react";
+import Input from "../../../../components/forms/input";
+import SimpleForm from "../../../../components/forms/simple-form";
 
 function Form() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
+    console.log(evt);
+    console.log(email);
+    console.log(password);
+  };
+
   return (
-    <FormStyled>
+    <SimpleForm title="Sign In" onSubmit={handleSubmit}>
       <Input
         type="email"
         placeholder="Email"
@@ -20,7 +26,7 @@ function Form() {
         value={password}
         handleChange={(val) => setPassword(val)}
       />
-    </FormStyled>
+    </SimpleForm>
   );
 }
 
