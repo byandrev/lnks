@@ -13,13 +13,13 @@ function OpenSource() {
         <CardRepository
           title="Frontend"
           icon={<MdWeb />}
-          url="https://github.com"
+          url="https://github.com/byandrev/lnks"
         />
 
         <CardRepository
           title="Backend"
           icon={<HiOutlineServerStack />}
-          url="https://github.com"
+          url="https://github.com/byandrev/lnks-api-spring-boot"
         />
       </Links>
     </OpenSourceStyled>
