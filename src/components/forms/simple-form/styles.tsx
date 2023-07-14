@@ -17,3 +17,11 @@ export const ErrorContainer = styled.div`
   color: white;
   margin-bottom: 1rem;
 `;
+
+export const SuccessContainer = styled.div`
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  background-color: ${(props) => props.theme.success};
+  color: white;
+  margin-bottom: 1rem;
+`;

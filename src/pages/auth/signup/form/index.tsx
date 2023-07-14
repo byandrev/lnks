@@ -14,13 +14,11 @@ function Form() {
     queryFn: () => register(email, name, password),
     enabled: false,
     retry: false,
-    onSuccess: () => alert("Success"),
   });
   let errMessage: string | undefined = "";
 
   const handleSubmit = () => {
-    refetch();
-    console.log(data);
+    void refetch();
   };
 
   if (error instanceof Error) {
@@ -28,7 +26,12 @@ function Form() {
   }
 
   return (
-    <SimpleForm title="Sign Up" onSubmit={handleSubmit} error={errMessage}>
+    <SimpleForm
+      title="Sign Up"
+      onSubmit={handleSubmit}
+      error={errMessage}
+      success={!error && data ? "User successfully registered" : undefined}
+    >
       <span>{isLoading ? "Loading..." : ""}</span>
       <Input
         type="email"
