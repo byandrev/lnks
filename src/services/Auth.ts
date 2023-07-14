@@ -8,13 +8,12 @@ async function login(email: string, password: string): Promise<any> {
     },
     body: JSON.stringify({ email, password }),
   });
-  const data = await response.json();
+  const data = response.json();
 
   if (response.ok) {
     return data;
   } else {
-    console.log(data);
-    throw new Error(data.error);
+    throw new Error("Bad credentials");
   }
 }
 
@@ -30,12 +29,12 @@ async function register(
     },
     body: JSON.stringify({ email, name, password }),
   });
-  const data = await response.json();
+  const data = response.json();
 
   if (response.ok) {
     return data;
   } else {
-    throw new Error(data.error);
+    throw new Error("Sign up failed");
   }
 }
 
