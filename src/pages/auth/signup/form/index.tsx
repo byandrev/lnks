@@ -1,25 +1,26 @@
 import { useState } from "react";
 import Input from "../../../../components/forms/input";
 import SimpleForm from "../../../../components/forms/simple-form";
-import { login } from "../../../../services/Auth";
+import { register } from "../../../../services/Auth";
 import { useQuery } from "react-query";
 
 function Form() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
-  const { isFetching, error, refetch } = useQuery({
-    queryKey: ["users"],
-    queryFn: () => login(email, password),
+  const { isLoading, data, error, refetch } = useQuery({
+    queryKey: ["signup"],
+    queryFn: () => register(email, name, password),
     enabled: false,
     retry: false,
-    onSuccess: (data) => console.log(data),
+    onSuccess: () => alert("Success"),
   });
   let errMessage: string | undefined = "";
 
   const handleSubmit = () => {
-    errMessage = "";
     refetch();
+    console.log(data);
   };
 
   if (error instanceof Error) {
@@ -27,13 +28,18 @@ function Form() {
   }
 
   return (
-    <SimpleForm title="Sign In" onSubmit={handleSubmit} error={errMessage}>
-      <span>{isFetching ? "Loading..." : ""}</span>
+    <SimpleForm title="Sign Up" onSubmit={handleSubmit} error={errMessage}>
+      <span>{isLoading ? "Loading..." : ""}</span>
       <Input
         type="email"
         placeholder="Email"
         value={email}
         handleChange={(val) => setEmail(val)}
+      />
+      <Input
+        placeholder="Name"
+        value={name}
+        handleChange={(val) => setName(val)}
       />
       <Input
         type="password"

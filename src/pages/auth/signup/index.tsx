@@ -1,5 +1,12 @@
+import Wrapper from "../../../components/wrapper";
+import Form from "./form";
+
 function SignUp() {
-  return <div>Sign In</div>;
+  return (
+    <Wrapper>
+      <Form />
+    </Wrapper>
+  );
 }
 
 export default SignUp;
