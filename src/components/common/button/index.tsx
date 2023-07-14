@@ -1,16 +1,25 @@
 import { ReactNode } from "react";
 import { ButtonStyled, ButtonText } from "./styles.tsx";
+import Loader from "../loader";
 
 interface Props {
   children?: ReactNode;
   onClick?: () => void;
   icon?: ReactNode;
+  isDisabled?: boolean;
+  isLoading?: boolean;
 }
 
-function Button({ children, icon, onClick }: Props) {
+function Button({
+  children,
+  icon,
+  isDisabled = false,
+  isLoading = false,
+  onClick,
+}: Props) {
   return (
-    <ButtonStyled onClick={onClick}>
-      {icon && icon}
+    <ButtonStyled onClick={onClick} disabled={isDisabled}>
+      {isLoading ? <Loader /> : icon && icon}
       {children && <ButtonText>{children}</ButtonText>}
     </ButtonStyled>
   );

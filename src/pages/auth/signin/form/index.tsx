@@ -25,8 +25,8 @@ function Form() {
       title="Sign In"
       onSubmit={handleSubmit}
       error={error || undefined}
+      loading={loading}
     >
-      <span>{loading ? "Loading..." : ""}</span>
       <Input
         type="email"
         placeholder="Email"

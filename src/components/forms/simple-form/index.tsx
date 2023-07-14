@@ -6,6 +6,7 @@ interface Props {
   children?: React.ReactNode;
   title: string;
   onSubmit: (evt: React.FormEvent<HTMLFormElement>) => void;
+  loading?: boolean;
   error?: string;
   success?: string;
 }
@@ -14,6 +15,7 @@ const SimpleForm: React.FC<Props> = ({
   title,
   children,
   onSubmit,
+  loading = false,
   success,
   error,
 }) => {
@@ -30,7 +32,9 @@ const SimpleForm: React.FC<Props> = ({
 
       <form onSubmit={handleSubmit}>
         {children}
-        <Button>Submit</Button>
+        <Button isDisabled={loading} isLoading={loading}>
+          Submit
+        </Button>
       </form>
     </FormStyled>
   );
