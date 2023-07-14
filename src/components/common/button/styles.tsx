@@ -12,6 +12,11 @@ export const ButtonStyled = styled.button`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 `;
 
 export const ButtonText = styled.span``;

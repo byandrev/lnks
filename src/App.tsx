@@ -4,6 +4,8 @@ import { GlobalStyles } from "./theme/globalStyles.ts";
 import useDarkMode from "./hooks/useDarkMode.ts";
 import { RouterProvider } from "react-router-dom";
 import router from "./router";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { UserProvider } from "./context/UserContext.tsx";
 
 function App() {
   const { theme } = useDarkMode();
@@ -12,8 +14,12 @@ function App() {
 
   return (
     <ThemeProvider theme={themeMode}>
-      <GlobalStyles theme={themeMode} />
-      <RouterProvider router={router} />
+      <QueryClientProvider client={new QueryClient()}>
+        <UserProvider>
+          <GlobalStyles theme={themeMode} />
+          <RouterProvider router={router} />
+        </UserProvider>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
