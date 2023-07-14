@@ -5,6 +5,7 @@ const baseStyles = {
   brand: "#66bb6a",
   brandDark: "#388e3c",
   warning: "#f76359",
+  success: "#81c784",
 };
 
 export const lightTheme: DefaultTheme = {
