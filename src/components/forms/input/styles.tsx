@@ -6,7 +6,7 @@ export const InputStyled = styled.input`
   background-color: ${(props) => props.theme.bgAlt};
   color: ${(props) => props.theme.text};
   font-family: inherit;
-  font-size: .9rem;
+  font-size: 0.9rem;
   border-radius: 0.3rem;
   width: 100%;
   margin-bottom: 1rem;
