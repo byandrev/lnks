@@ -1,34 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "../../../../components/forms/input";
 import SimpleForm from "../../../../components/forms/simple-form";
-import { login } from "../../../../services/Auth";
-import { useQuery } from "react-query";
+import useUser from "../../../../hooks/useUser";
+import { useNavigate } from "react-router-dom";
 
 function Form() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const { isFetching, error, refetch } = useQuery({
-    queryKey: ["users"],
-    queryFn: () => login(email, password),
-    enabled: false,
-    retry: false,
-    onSuccess: (data) => console.log(data),
-  });
-  let errMessage: string | undefined = "";
+  const { login, user, error, loading } = useUser();
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
-    errMessage = "";
-    refetch();
+    if (login) login({ email, password });
   };
 
-  if (error instanceof Error) {
-    errMessage = error?.message;
-  }
+  useEffect(() => {
+    if (user && !error && !loading) {
+      navigate("/links");
+    }
+  }, [user, error, loading, navigate]);
 
   return (
-    <SimpleForm title="Sign In" onSubmit={handleSubmit} error={errMessage}>
-      <span>{isFetching ? "Loading..." : ""}</span>
+    <SimpleForm
+      title="Sign In"
+      onSubmit={handleSubmit}
+      error={error || undefined}
+    >
+      <span>{loading ? "Loading..." : ""}</span>
       <Input
         type="email"
         placeholder="Email"
