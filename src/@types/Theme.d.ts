@@ -7,6 +7,7 @@ export default interface ThemeType {
   brandLight: string;
   brand: string;
   brandDark: string;
+  warning: string;
 }
 
 export interface ThemeContextType {
