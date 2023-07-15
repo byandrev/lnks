@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ContentStyled = styled.div`
-  margin: 5rem 0;
   text-align: center;
 `;
 
