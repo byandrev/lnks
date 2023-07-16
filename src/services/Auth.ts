@@ -9,12 +9,12 @@ async function login(email: string, password: string): Promise<ResponseAPI> {
     },
     body: `username=${email}&password=${password}`,
   });
-  const data = response.json();
+  const data = (await response.json()) as ResponseAPI;
 
-  if (response.ok) {
-    return data as Promise<ResponseAPI>;
+  if (!data.error) {
+    return data;
   } else {
-    throw new Error("Bad credentials");
+    throw new Error(data.error || "Error");
   }
 }
 
@@ -23,19 +23,19 @@ async function register(
   name: string,
   password: string
 ): Promise<ResponseAPI> {
-  const response = await fetch(`${API_URL}/register`, {
+  const response = await fetch(`${API_URL}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email, name, password }),
+    body: JSON.stringify({ email, username: name, password }),
   });
-  const data = response.json();
+  const data = (await response.json()) as ResponseAPI;
 
-  if (response.ok) {
-    return data as Promise<ResponseAPI>;
+  if (!data.error) {
+    return data;
   } else {
-    throw new Error("Sign up failed");
+    throw new Error(data.error || "Error");
   }
 }
 
@@ -46,12 +46,12 @@ async function getUserData(token: string): Promise<ResponseAPI> {
       Authorization: `Bearer ${token}`,
     },
   });
-  const data = response.json();
+  const data = (await response.json()) as ResponseAPI;
 
-  if (response.ok) {
-    return data as Promise<ResponseAPI>;
+  if (!data.error) {
+    return data;
   } else {
-    throw new Error("Error get user");
+    throw new Error(data.error || "Error get user");
   }
 }
 

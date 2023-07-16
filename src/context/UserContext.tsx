@@ -32,13 +32,13 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     },
     {
       onSuccess: (data: ResponseAPI) => {
-        console.log(data);
         if (data.body) {
           const userResponse: User = {
             name: data.body.username as string,
             email: data.body.email as string,
             id: data.body.id as string,
           };
+
           setUser(userResponse);
           localStorage.setItem("user", JSON.stringify(userResponse));
         }
@@ -59,10 +59,11 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
       onSuccess: (data: ResponseAPI) => {
         if (data.body) {
           const tokenRes = data.body.access_token as string;
+
           setUser({ id: "", name: "", email: "" });
           setToken(tokenRes);
-          localStorage.setItem("token", tokenRes);
 
+          localStorage.setItem("token", tokenRes);
           getUserMutation.mutate(tokenRes);
         }
       },
@@ -91,12 +92,17 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   }, []);
 
   useEffect(() => {
+    console.log("yp");
+    console.log(user);
+
     const tokenLocalStorage = localStorage.getItem("token");
     if (tokenLocalStorage && !user) {
       getUserMutation.mutate(tokenLocalStorage);
     } else {
       setIsFinishLoading(true);
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const value = useMemo(() => {

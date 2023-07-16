@@ -30,9 +30,9 @@ function Form() {
       title="Sign Up"
       onSubmit={handleSubmit}
       error={errMessage}
+      loading={isLoading}
       success={!error && data ? "User successfully registered" : undefined}
     >
-      <span>{isLoading ? "Loading..." : ""}</span>
       <Input
         type="email"
         placeholder="Email"
