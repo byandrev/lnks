@@ -5,6 +5,7 @@ export const FooterStyled = styled.footer`
   justify-content: space-between;
   align-items: center;
   padding-bottom: 2rem;
+  font-size: 0.9rem;
 
   @media (max-width: 600px) {
     flex-direction: column-reverse;

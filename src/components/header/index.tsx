@@ -1,4 +1,4 @@
-import { HeaderStyled, Title } from "./styles.tsx";
+import { HeaderStyled } from "./styles.tsx";
 import Toggle from "../toggle";
 import useUser from "../../hooks/useUser.tsx";
 import Flex from "../common/flex/index.tsx";

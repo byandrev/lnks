@@ -20,8 +20,8 @@ export const HeaderStyled = styled.header`
 
   & .actions button {
     font-size: 0.9rem;
-    padding-top: 0.35rem;
-    padding-bottom: 0.35rem;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
   }
 `;
 
