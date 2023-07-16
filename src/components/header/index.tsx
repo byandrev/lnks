@@ -4,6 +4,7 @@ import useUser from "../../hooks/useUser.tsx";
 import Flex from "../common/flex/index.tsx";
 import Button from "../common/button/index.tsx";
 import { useNavigate } from "react-router-dom";
+import Logo from "../common/logo/index.tsx";
 
 function Header() {
   const { user, logout } = useUser();
@@ -15,7 +16,10 @@ function Header() {
 
   return (
     <HeaderStyled>
-      <Title>Lnks</Title>
+      <h1>
+        <Logo />
+      </h1>
+
       <Flex gap="0.5" alignItems="center">
         {user ? (
           <Flex gap="1" alignItems="center">
