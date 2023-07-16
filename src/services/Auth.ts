@@ -5,9 +5,9 @@ async function login(email: string, password: string): Promise<ResponseAPI> {
   const response = await fetch(`${API_URL}/login`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: JSON.stringify({ email, password }),
+    body: `username=${email}&password=${password}`,
   });
   const data = response.json();
 
