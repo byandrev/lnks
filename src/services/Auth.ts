@@ -5,9 +5,9 @@ async function login(email: string, password: string): Promise<ResponseAPI> {
   const response = await fetch(`${API_URL}/login`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: JSON.stringify({ email, password }),
+    body: `username=${email}&password=${password}`,
   });
   const data = response.json();
 
@@ -39,4 +39,20 @@ async function register(
   }
 }
 
-export { login, register };
+async function getUserData(token: string): Promise<ResponseAPI> {
+  const response = await fetch(`${API_URL}/login/me`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const data = response.json();
+
+  if (response.ok) {
+    return data as Promise<ResponseAPI>;
+  } else {
+    throw new Error("Error get user");
+  }
+}
+
+export { login, register, getUserData };

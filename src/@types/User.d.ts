@@ -13,6 +13,7 @@ export interface UserContextType {
   user?: User | null;
   token?: string | null;
   loading?: boolean;
+  isFinishLoading?: boolean;
   error?: string | null;
   login?: (user: UserLogin) => void;
   logout?: () => void;
