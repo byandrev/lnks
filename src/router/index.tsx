@@ -4,6 +4,7 @@ import NotFound from "../pages/not_found";
 import SignIn from "../pages/auth/signin";
 import SignUp from "../pages/auth/signup";
 import Links from "../pages/links";
+import AuthRoute from "./AuthRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/links",
-    element: <Links />,
+    element: (
+      <AuthRoute>
+        <Links />
+      </AuthRoute>
+    ),
   },
 ]);
 

@@ -39,4 +39,20 @@ async function register(
   }
 }
 
-export { login, register };
+async function getUserData(token: string): Promise<ResponseAPI> {
+  const response = await fetch(`${API_URL}/login/me`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const data = response.json();
+
+  if (response.ok) {
+    return data as Promise<ResponseAPI>;
+  } else {
+    throw new Error("Error get user");
+  }
+}
+
+export { login, register, getUserData };

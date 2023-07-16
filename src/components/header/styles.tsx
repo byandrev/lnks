@@ -9,6 +9,20 @@ export const HeaderStyled = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 4rem;
+
+  & .link {
+    cursor: pointer;
+
+    &:hover {
+      color: ${(props) => props.theme.brand};
+    }
+  }
+
+  & .actions button {
+    font-size: 0.9rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+  }
 `;
 
 export const Title = styled.h1`
