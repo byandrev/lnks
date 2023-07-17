@@ -3,6 +3,7 @@ import { BannerStyled, Description, Title } from "./styles.tsx";
 import Button from "../../../../components/common/button";
 import { BsRocketTakeoff } from "react-icons/bs";
 import OpenSource from "../opensource";
+import { Link } from "react-router-dom";
 
 function Banner() {
   return (
@@ -12,7 +13,9 @@ function Banner() {
         <Description>
           The perfect application for saving and organizing your links
         </Description>
-        <Button icon={<BsRocketTakeoff />}>Get Started</Button>
+        <Link to="/signup">
+          <Button icon={<BsRocketTakeoff />}>Get Started</Button>
+        </Link>
 
         <OpenSource />
       </BannerStyled>

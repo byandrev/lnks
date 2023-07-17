@@ -19,7 +19,7 @@ function OpenSource() {
         <CardRepository
           title="Backend"
           icon={<HiOutlineServerStack />}
-          url="https://github.com/byandrev/lnks-api-spring-boot"
+          url="https://github.com/byandrev/lnks-api"
         />
       </Links>
     </OpenSourceStyled>
