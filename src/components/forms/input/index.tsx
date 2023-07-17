@@ -6,6 +6,7 @@ interface InputProps {
   handleChange: (val: string) => void;
   placeholder?: string;
   type?: string;
+  isRequired?: boolean;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -13,6 +14,7 @@ const Input: React.FC<InputProps> = ({
   placeholder = "...",
   type = "text",
   handleChange,
+  isRequired = false,
 }) => {
   return (
     <InputStyled
@@ -22,6 +24,7 @@ const Input: React.FC<InputProps> = ({
       onChange={(evt: ChangeEvent<HTMLInputElement>) =>
         handleChange(evt.target.value)
       }
+      required={isRequired}
     />
   );
 };

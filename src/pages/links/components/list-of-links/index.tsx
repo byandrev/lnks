@@ -5,7 +5,7 @@ import Flex from "../../../../components/common/flex";
 import { ListOfLinksContainer } from "./styles.tsx";
 
 interface Props {
-  links: Link[];
+  links: Link[] | null;
 }
 
 const ListOfLinks: FC<Props> = ({ links }) => {
@@ -17,9 +17,9 @@ const ListOfLinks: FC<Props> = ({ links }) => {
             <LinkItem
               key={link.id}
               id={link.id}
-              description={link.description}
               name={link.name}
               url={link.url}
+              tags={link.tags}
             />
           ))}
       </Flex>

@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-export const ButtonStyled = styled.button`
+export const ButtonStyled = styled.button<{ $color: string }>`
   cursor: pointer;
   padding: 0.5rem 1rem;
   border: none;
-  background-color: ${(props) => props.theme.brand};
-  color: white;
+  background-color: ${(props) =>
+    props.$color === "brand" ? props.theme.brand : props.theme.border};
+  color: ${(props) => (props.$color === "brand" ? "white" : props.theme.text)};
   font-size: 1rem;
   font-family: inherit;
   border-radius: 0.3rem;

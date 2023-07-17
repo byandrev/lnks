@@ -5,6 +5,7 @@ import SignIn from "../pages/auth/signin";
 import SignUp from "../pages/auth/signup";
 import Links from "../pages/links";
 import AuthRoute from "./AuthRoute";
+import { LinksProvider } from "../context/LinksContext";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,9 @@ const router = createBrowserRouter([
     path: "/links",
     element: (
       <AuthRoute>
-        <Links />
+        <LinksProvider>
+          <Links />
+        </LinksProvider>
       </AuthRoute>
     ),
   },
