@@ -31,8 +31,12 @@ const LinkItem: FC<Props> = ({ name, description, url }) => {
         </div>
 
         <Flex gap="0.5">
-          <Button icon={<TbWorldWww />} onClick={handleVisitURL}></Button>
-          <Button icon={<SlOptionsVertical />}></Button>
+          <Button
+            icon={<TbWorldWww />}
+            onClick={handleVisitURL}
+            color="dark"
+          ></Button>
+          <Button icon={<SlOptionsVertical />} color="dark"></Button>
         </Flex>
       </Flex>
     </LinkStyled>
