@@ -92,9 +92,6 @@ const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    console.log("yp");
-    console.log(user);
-
     const tokenLocalStorage = localStorage.getItem("token");
     if (tokenLocalStorage && !user) {
       getUserMutation.mutate(tokenLocalStorage);
