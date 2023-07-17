@@ -6,7 +6,7 @@ export const ButtonStyled = styled.button<{ $color: string }>`
   border: none;
   background-color: ${(props) =>
     props.$color === "brand" ? props.theme.brand : props.theme.border};
-  color: white;
+  color: ${(props) => (props.$color === "brand" ? "white" : props.theme.text)};
   font-size: 1rem;
   font-family: inherit;
   border-radius: 0.3rem;
