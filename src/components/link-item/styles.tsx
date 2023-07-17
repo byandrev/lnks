@@ -10,6 +10,14 @@ export const LinkStyled = styled.div`
     color: ${(props) => props.theme.textLight};
     font-size: 0.9rem;
   }
+
+  ul {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+  }
 `;
 
 export const LinkTitle = styled.h3`

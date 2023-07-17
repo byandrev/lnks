@@ -1,70 +1,26 @@
 import Wrapper from "../../components/wrapper";
 import Header from "./components/header";
-import Link from "../../@types/Link";
 import ListOfLinks from "./components/list-of-links";
 import { LinksGrid } from "./styles.tsx";
 import Sidebar from "./components/sidebar";
+import useLinks from "../../hooks/useLinks.tsx";
+import { useState } from "react";
+import ModalCreate from "./components/modal-create/index.tsx";
+import Loader from "../../components/common/loader/index.tsx";
 
 function Links() {
-  const links: Link[] = [
-    {
-      id: "0",
-      name: "Google",
-      url: "https://google.com",
-      description: "Search engine",
-      tags: ["search", "engine", "google"],
-    },
-    {
-      id: "1",
-      name: "Facebook",
-      url: "https://facebook.com",
-      description: "Social media",
-      tags: ["social", "media", "facebook"],
-    },
-    {
-      id: "2",
-      name: "Facebook",
-      url: "https://facebook.com",
-      description: "Social media",
-      tags: ["social", "media", "facebook"],
-    },
-    {
-      id: "3",
-      name: "Facebook",
-      url: "https://facebook.com",
-      description: "Social media",
-      tags: ["social", "media", "facebook"],
-    },
-    {
-      id: "4",
-      name: "Facebook",
-      url: "https://facebook.com",
-      description: "Social media",
-      tags: ["social", "media", "facebook"],
-    },
-    {
-      id: "5",
-      name: "Facebook",
-      url: "https://facebook.com",
-      description: "Social media",
-      tags: ["social", "media", "facebook"],
-    },
-    {
-      id: "6",
-      name: "Facebook",
-      url: "https://facebook.com",
-      description: "Social media",
-      tags: ["social", "media", "facebook"],
-    },
-  ];
+  const { links, isLoading } = useLinks();
+  const [modalState, setModalState] = useState(false);
 
   return (
     <Wrapper>
+      <ModalCreate state={modalState} onClose={() => setModalState(false)} />
+
       <LinksGrid>
         <Sidebar />
         <div>
-          <Header />
-          <ListOfLinks links={links} />
+          <Header openModal={() => setModalState(true)} />
+          {isLoading ? <Loader my={2} /> : <ListOfLinks links={links} />}
         </div>
       </LinksGrid>
     </Wrapper>
