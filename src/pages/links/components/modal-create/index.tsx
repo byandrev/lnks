@@ -34,7 +34,7 @@ const ModalCreate: FC<Props> = ({ state, onClose }) => {
     },
     onSuccess: (data: ResponseAPI) => {
       if (!data.error && data.body) {
-        handleAddLink(data.body as Link);
+        handleAddLink(data.body as any as Link);
         clearFields();
         onClose();
       }

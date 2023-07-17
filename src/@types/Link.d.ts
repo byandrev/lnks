@@ -17,7 +17,7 @@ export interface LinkDTO {
 
 export interface LinksContextType {
   links: Link[] | null;
-  setLinks: SetStateAction<Link[]>;
+  setLinks: (links: Link[]) => void;
   isLoading: boolean;
   error: string | null;
   refetch: () => void;

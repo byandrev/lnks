@@ -23,13 +23,20 @@ const LinksProvider: FC<Props> = ({ children }) => {
       return null;
     },
     onSuccess: (data: ResponseAPI) => {
-      if (data && !data.error) {
-        setLinks(data.body as Link[]);
+      if (data && !data.error && data.body) {
+        const linksRes = data.body as any as Link[];
+        setLinks(linksRes);
       }
     },
     enabled: false,
     retry: false,
   });
+
+  let errorMessage = error instanceof Error ? error.message : null;
+
+  const handleUpdateLinks = (links: Link[]) => {
+    setLinks(links);
+  };
 
   useEffect(() => {
     void refetch();
@@ -40,8 +47,8 @@ const LinksProvider: FC<Props> = ({ children }) => {
     links,
     isLoading: isLoading || isFetching,
     refetch,
-    error,
-    setLinks,
+    error: errorMessage,
+    setLinks: handleUpdateLinks,
   };
 
   return (

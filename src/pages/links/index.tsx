@@ -20,7 +20,11 @@ function Links() {
         <Sidebar />
         <div>
           <Header openModal={() => setModalState(true)} />
-          {isLoading ? <Loader my={2} /> : <ListOfLinks links={links} />}
+          {isLoading ? (
+            <Loader my={2} />
+          ) : (
+            <ListOfLinks links={links || null} />
+          )}
         </div>
       </LinksGrid>
     </Wrapper>
