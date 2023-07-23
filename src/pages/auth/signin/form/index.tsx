@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import Input from "../../../../components/forms/input";
 import SimpleForm from "../../../../components/forms/simple-form";
 import useUser from "../../../../hooks/useUser";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Paragraph from "../../../../components/common/paragraph";
 
 function Form() {
   const [email, setEmail] = useState("");
@@ -39,6 +40,10 @@ function Form() {
         value={password}
         handleChange={(val) => setPassword(val)}
       />
+
+      <Paragraph my={"0.5"}>
+        ¿You do not have an account? <Link to="/signup">Sign Up</Link>
+      </Paragraph>
     </SimpleForm>
   );
 }
