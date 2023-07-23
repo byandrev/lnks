@@ -3,6 +3,8 @@ import Input from "../../../../components/forms/input";
 import SimpleForm from "../../../../components/forms/simple-form";
 import { register } from "../../../../services/Auth";
 import { useQuery } from "react-query";
+import Paragraph from "../../../../components/common/paragraph";
+import { Link } from "react-router-dom";
 
 function Form() {
   const [email, setEmail] = useState("");
@@ -50,6 +52,10 @@ function Form() {
         value={password}
         handleChange={(val) => setPassword(val)}
       />
+
+      <Paragraph my={"0.5"}>
+        ¿You have an account? <Link to="/signin">Sign In</Link>
+      </Paragraph>
     </SimpleForm>
   );
 }
